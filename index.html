@@ -20,6 +20,7 @@
                 <li><a href="#about">O mnie</a></li>
                 <li><a href="#offer">Oferta</a></li>
                 <li><a href="#pricing">Cennik</a></li>
+                <li><a href="#projects">Realizacje</a></li>
                 <li><a href="#reviews">Opinie</a></li>
                 <li><a href="#contact" class="btn-primary">Kontakt</a></li>
             </ul>
@@ -155,30 +156,125 @@
         </div>
     </section>
 
+    <section id="projects" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Ostatnie realizacje</h2>
+            <p class="section-subtitle" data-aos="fade-up">Zobacz przykłady moich napraw i modernizacji.</p>
+
+            <div class="projects-wrapper">
+                
+                <div class="project-card" data-aos="fade-right">
+                    <div class="project-img">
+                        <img src="https://placehold.co/600x400/2A2A72/FFF?text=Zdjecie+Laptopa" alt="Naprawa laptopa">
+                    </div>
+                    <div class="project-info">
+                        <h3>Laptop Lenovo Legion</h3>
+                        <div class="project-detail">
+                            <span class="label">Problem:</span>
+                            <span class="value">Laptop przegrzewał się i wyłączał podczas gier.</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="label">Rozwiązanie:</span>
+                            <span class="value">Pełne czyszczenie wnętrza z kurzu, wymiana starej pasty na Thermal Grizzly Kryonaut.</span>
+                        </div>
+                        <div class="project-status">
+                            <i class="fas fa-check-circle"></i> Naprawiono
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-left">
+                     <div class="project-img">
+                        <img src="https://placehold.co/600x400/6C63FF/FFF?text=Zdjecie+PC" alt="Składanie PC">
+                    </div>
+                    <div class="project-info">
+                        <h3>Komputer Gamingowy (Custom)</h3>
+                        <div class="project-detail">
+                            <span class="label">Zlecenie:</span>
+                            <span class="value">Złożenie komputera do gier w budżecie 4000 zł.</span>
+                        </div>
+                        <div class="project-detail">
+                            <span class="label">Realizacja:</span>
+                            <span class="value">Dobór podzespołów, montaż, organizacja kabli (cable management), instalacja Windows 11.</span>
+                        </div>
+                        <div class="project-status">
+                            <i class="fas fa-check-circle"></i> Złożono
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="project-card" data-aos="fade-right">
+                    <div class="project-img">
+                       <img src="https://placehold.co/600x400/2A2A72/FFF?text=Zdjecie+Dysk" alt="Wymiana Dysku">
+                   </div>
+                   <div class="project-info">
+                       <h3>Laptop HP Pavilion</h3>
+                       <div class="project-detail">
+                           <span class="label">Problem:</span>
+                           <span class="value">Bardzo wolna praca systemu, długie uruchamianie (5 min).</span>
+                       </div>
+                       <div class="project-detail">
+                           <span class="label">Rozwiązanie:</span>
+                           <span class="value">Wymiana starego dysku HDD na szybki dysk SSD, klonowanie danych 1:1.</span>
+                       </div>
+                       <div class="project-status">
+                           <i class="fas fa-check-circle"></i> Przyspieszono
+                       </div>
+                   </div>
+               </div>
+
+            </div>
+        </div>
+    </section>
+
     <section id="reviews" class="section bg-gradient">
         <div class="container">
             <h2 class="section-title text-white">Co mówią klienci?</h2>
-            <div class="reviews-slider" data-aos="fade-left">
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Świetny serwis komputerowy! Kuba to prawdziwy fachowiec – szybko zdiagnozował problem, wszystko wytłumaczył zrozumiale i naprawił mój sprzęt w ekspresowym tempie. Ceny uczciwe, podejście bardzo profesjonalne, a przy tym luźna, sympatyczna atmosfera. Zdecydowanie polecam każdemu, kto szuka solidnej pomocy z komputerem!"</p>
-                    <span>- Oliwia Rz.</span>
+            
+            <div class="slider-container" data-aos="zoom-in">
+                <button class="slider-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="slider-track-container">
+                    <ul class="slider-track">
+                        <li class="review-slide current-slide">
+                            <div class="review-card-slider">
+                                <div class="stars">★★★★★</div>
+                                <p>"Świetny serwis komputerowy! Kuba to prawdziwy fachowiec – szybko zdiagnozował problem, wszystko wytłumaczył zrozumiale i naprawił mój sprzęt w ekspresowym tempie. Ceny uczciwe, podejście bardzo profesjonalne."</p>
+                                <span>- Oliwia Rz.</span>
+                            </div>
+                        </li>
+                        <li class="review-slide">
+                            <div class="review-card-slider">
+                                <div class="stars">★★★★★</div>
+                                <p>"Wszelkie obiekcje do młodego wieku są szczerze niepotrzebne. Umiejętności Kuby dotyczące serwisowania komputerów są warte swojej ceny. Pomógł z doborem podzespołów oraz złożeniem komputera."</p>
+                                <span>- Ignacy P.</span>
+                            </div>
+                        </li>
+                        <li class="review-slide">
+                            <div class="review-card-slider">
+                                <div class="stars">★★★★★</div>
+                                <p>"Szybko zdiagnozowany problem i sprawna naprawa. Co mi się podobało to wyjaśnienie konkretnych rzeczy bez zbędnego gadania. Można rozmawiać na luzie i nie ma podejścia jak za kare do klienta"</p>
+                                <span>- Tomcio T.</span>
+                            </div>
+                        </li>
+                        <li class="review-slide">
+                            <div class="review-card-slider">
+                                <div class="stars">★★★★★</div>
+                                <p>"Pan z którym rozmawiałem bardzo pomocny, rzetelny i szczery odpowiedział na wszystkie pytania jakie zadałem i wytłumaczył wszystko nie robiąc ze mnie idioty, bardzo polecam"</p>
+                                <span>- Kiermit</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Wszelkie obiekcję do młodego wieku są szczerzę nie potrzebne. Umiejętności Kuby dotyczące serwisowania komputerów są warte swojej ceny. Mi osobiście pomógł z doborem podzespołów oraz złożeniem komputera. Wszystko działa bez zarzutów."</p>
-                    <span>- Ignacy P.</span>
-                </div>
-                 <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Szybko zdiagnozowany problem i sprawna naprawa , co mi się podobało to wyjaśnienie konkretnych rzeczy bez zbędnego gadania. Można rozmawiać na luzie i nie ma podejścia jak za kare do klienta"</p>
-                    <span>- Tomcio T.</span>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p>"Pan z którym rozmawiałem bardzo pomocny, rzetelny i szczery odpowiedział na wszystkie pytania jakie zadałem i wytłumaczył wszystko nie robiąc ze mnie idioty, bardzo polecam"</p>
-                    <span>- Kiermit </span>
-                </div>
+
+                <button class="slider-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="slider-nav">
+                <button class="slider-dot current-dot"></button>
+                <button class="slider-dot"></button>
+                <button class="slider-dot"></button>
+                <button class="slider-dot"></button>
             </div>
         </div>
     </section>
@@ -234,7 +330,7 @@
 
     <footer>
         <div class="container footer-content">
-            <p>&copy; 2025 PodPC. Wszelkie prawa zastrzeżone.</p>
+            <p>© 2025 PodPC. Wszelkie prawa zastrzeżone.</p>
             <div class="socials">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
@@ -245,7 +341,4 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
-
-
