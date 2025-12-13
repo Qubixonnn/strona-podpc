@@ -16,7 +16,13 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--text-c
 .navbar { position: fixed; top: 0; width: 100%; background: rgba(26, 26, 46, 0.95); padding: 1rem 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
 .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 .logo { font-size: 1.8rem; font-weight: 700; color: var(--text-light); }
-.highlight { color: var(--primary-color); }
+
+/* ZMODYFIKOWANE: Pulsujący tekst */
+.highlight { 
+    color: var(--primary-color);
+    animation: colorPulse 3s ease-in-out infinite alternate;
+}
+
 .nav-links { display: flex; list-style: none; align-items: center; }
 .nav-links li { margin-left: 30px; }
 .nav-links a { text-decoration: none; color: var(--text-light); font-weight: 500; transition: var(--transition); }
@@ -28,8 +34,23 @@ body { font-family: 'Poppins', sans-serif; line-height: 1.6; color: var(--text-c
 .btn-secondary { background: transparent; border: 2px solid var(--primary-color); color: var(--text-light); padding: 10px 25px; border-radius: 25px; text-decoration: none; transition: var(--transition); }
 .btn-secondary:hover { background: var(--primary-color); }
 
-/* Hero */
-.hero { height: 100vh; background: linear-gradient(135deg, var(--secondary-color), var(--dark-bg)); display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; padding: 0 20px; }
+/* ZMODYFIKOWANE: Hero z animowanym tłem */
+.hero { 
+    height: 100vh; 
+    /* Nowy gradient */
+    background: linear-gradient(-45deg, var(--secondary-color), #120a29, #2c003e, var(--primary-color));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    color: white; 
+    position: relative; 
+    padding: 0 20px; 
+}
+
 .hero-content h1 { font-size: 3.5rem; margin-bottom: 20px; }
 .hero-content p { font-size: 1.2rem; margin-bottom: 30px; opacity: 0.9; }
 .hero-btns { display: flex; gap: 20px; justify-content: center; }
@@ -139,4 +160,19 @@ footer { background: var(--dark-bg); color: white; padding: 20px 0; text-align: 
     .slider-btn { width: 35px; height: 35px; font-size: 1rem; }
     .prev-btn { left: -10px; }
     .next-btn { right: -10px; }
+}
+
+/* --- ANIMACJE (DODANE NA KOŃCU) --- */
+
+/* Animacja pływającego tła */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Animacja pulsującego koloru tekstu */
+@keyframes colorPulse {
+    0% { color: var(--primary-color); text-shadow: 0 0 5px rgba(108, 99, 255, 0.2); }
+    100% { color: var(--accent-color); text-shadow: 0 0 20px rgba(0, 159, 253, 0.6); }
 }
