@@ -263,33 +263,195 @@ body {
     text-align: right;
 }
 
-/* Reviews */
+/* --- NOWA SEKCJA: REALIZACJE (PROJEKTY) --- */
+.projects-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.project-card {
+    display: flex;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.project-img {
+    flex: 1;
+    min-height: 250px;
+    overflow: hidden;
+}
+
+.project-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    flex: 1.2;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-info h3 {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.project-detail {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.project-detail .label {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.project-status {
+    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #eef2ff;
+    color: var(--secondary-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    width: fit-content;
+}
+
+/* Zmienna kolejność na desktopie dla co drugiego elementu */
+.project-card:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* --- ZMODYFIKOWANA SEKCJA: OPINIE (SLIDER) --- */
 .bg-gradient {
     background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
 }
 
 .text-white { color: white; }
 
-.reviews-slider {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+/* Kontener Slidea */
+.slider-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    height: auto;
 }
 
-.review-card {
+.slider-track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.slider-track {
+    display: flex;
+    list-style: none;
+    transition: transform 0.5s ease-in-out;
+    padding: 0;
+}
+
+.review-slide {
+    min-width: 100%;
+    padding: 0 10px;
+}
+
+.review-card-slider {
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
-    padding: 30px;
-    border-radius: 10px;
+    padding: 40px;
+    border-radius: 15px;
     color: white;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.review-card-slider p {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin: 15px 0;
+}
+
+.review-card-slider span {
+    font-weight: 700;
+    display: block;
+    margin-top: 15px;
 }
 
 .stars {
     color: #ffd700;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
 }
 
-/* Contact */
+/* Przyciski Slidera */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    background: white;
+    color: var(--primary-color);
+}
+
+.prev-btn { left: -50px; }
+.next-btn { right: -50px; }
+
+/* Kropki nawigacji */
+.slider-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.slider-dot {
+    border: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider-dot.current-dot {
+    background: white;
+    transform: scale(1.2);
+}
+
+/* --- Contact & Footer --- */
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -339,7 +501,6 @@ body {
     overflow: hidden;
 }
 
-/* Footer */
 footer {
     background: var(--dark-bg);
     color: white;
@@ -408,5 +569,18 @@ footer {
     
     .btn-secondary {
         text-align: center;
+    }
+
+    /* Mobile adjustments for slider and projects */
+    .slider-btn {
+        display: none; /* Ukryj strzałki na mobile, zostaw kropki */
+    }
+
+    .project-card, .project-card:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .project-img {
+        min-height: 200px;
     }
 }
