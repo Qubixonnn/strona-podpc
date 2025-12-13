@@ -79,3 +79,89 @@ function initSlider(sliderID) {
 // Uruchomienie sliderów dla konkretnych sekcji
 initSlider('projects-slider');
 initSlider('reviews-slider');
+
+
+// --- CHATBOT LOGIC ---
+
+const chatToggle = document.getElementById('chat-toggle');
+const chatWindow = document.getElementById('chat-window');
+const chatClose = document.getElementById('chat-close');
+const chatInput = document.getElementById('chat-input');
+const chatSend = document.getElementById('chat-send');
+const messagesContainer = document.getElementById('chat-messages');
+
+// Otwieranie/zamykanie
+if(chatToggle) {
+    chatToggle.addEventListener('click', () => {
+        chatWindow.classList.toggle('active');
+    });
+}
+
+if(chatClose) {
+    chatClose.addEventListener('click', () => {
+        chatWindow.classList.remove('active');
+    });
+}
+
+// Funkcja dodawania wiadomości
+function addMessage(text, sender) {
+    const msgDiv = document.createElement('div');
+    msgDiv.classList.add('message');
+    msgDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+    msgDiv.innerHTML = text; // innerHTML pozwala na linki <a href>
+    messagesContainer.appendChild(msgDiv);
+    
+    // Przewiń do dołu
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// "MÓZG" Bota - proste słowa kluczowe
+function getBotResponse(input) {
+    // Zamień na małe litery, żeby "CENA" i "cena" było tym samym
+    input = input.toLowerCase();
+
+    if (input.includes('cen') || input.includes('koszt') || input.includes('ile')) {
+        return 'Ceny zaczynają się od 20 zł. <a href="#pricing" style="color:blue">Sprawdź pełny cennik tutaj</a>.';
+    } 
+    else if (input.includes('adres') || input.includes('gdzie') || input.includes('dojazd')) {
+        return 'Znajdziesz mnie w Podwody-Kolonia 16A, Bełchatów. <a href="#contact" style="color:blue">Zobacz mapę</a>.';
+    }
+    else if (input.includes('telefon') || input.includes('kontakt') || input.includes('nr')) {
+        return 'Mój numer to: 536 515 451. Możesz dzwonić śmiało!';
+    }
+    else if (input.includes('czas') || input.includes('długo')) {
+        return 'Większość napraw wykonuję w 24-48h. Diagnostyka jest zazwyczaj tego samego dnia.';
+    }
+    else if (input.includes('cześć') || input.includes('hej') || input.includes('witam')) {
+        return 'Cześć! W czym mogę Ci pomóc z Twoim komputerem?';
+    }
+    else {
+        return 'Nie jestem pewien, ale chętnie odpowiem osobiście. Napisz do mnie przez formularz kontaktowy!';
+    }
+}
+
+// Obsługa wysyłania
+function handleSend() {
+    const text = chatInput.value.trim();
+    if (text === "") return;
+
+    // 1. Dodaj wiadomość użytkownika
+    addMessage(text, 'user');
+    chatInput.value = '';
+
+    // 2. Symuluj myślenie bota (małe opóźnienie)
+    setTimeout(() => {
+        const reply = getBotResponse(text);
+        addMessage(reply, 'bot');
+    }, 600);
+}
+
+if(chatSend) {
+    chatSend.addEventListener('click', handleSend);
+    
+    // Obsługa klawisza Enter
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleSend();
+    });
+}
+
